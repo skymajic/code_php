@@ -1,5 +1,5 @@
 <?php
-
+  // 再提出
   // ユーザ入力
   // $inputvalue = trim(fgets(STDIN));
   // CUIでphpプログラムを実行   ./index.php
