@@ -2,7 +2,7 @@
   // 再提出
   // ユーザ入力
   // $inputvalue = trim(fgets(STDIN));
-  // CUIでphpプログラムを実行   ./index.php
+  // CUIでphpプログラムを実行   php index.php
 
   // 仕様
   // 気温と湿度を入力すると、プログラムが季節と天気を予想し、季節と天気を出力する。
