@@ -1,5 +1,8 @@
 <?php
 
+// クラスの使い方の復習
+
+
 class Animal {
   public $name;
   public $age;
