@@ -27,35 +27,54 @@ class Human {
   //メソッド
 
   // 変数に値を加算する処理
-  public function addTimeToStudy($study) {
+  public function calcStudy($study) {
     $this->study += $study;
+    $this->remainingDays -= $this->study;
+    echo "残り日数は" . $this->remainingDays . "です\n";
+    return ($this->study/365) * 100;
   }
 
-  public function addTimeToWork($work) {
+  public function calcWork($work) {
     $this->work += $work;
+    $this->remainingDays -= $this->work;
+    echo "残り日数は" . $this->remainingDays . "です\n";
+    return ($this->work/365) * 100;
   }
 
-  public function addTimeToPlay($play) {
+  public function calcPlay($play) {
     $this->play += $play;
+    $this->remainingDays -= $this->play;
+    echo "残り日数は" . $this->remainingDays . "です\n";
+    return ($this->play/365) * 100;
   }
 
-  public function addTimeTo($books) {
+  public function calcBooks($books) {
     $this->books += $books;
+    $this->remainingDays -= $this->books;
+    echo "残り日数は" . $this->remainingDays . "です\n";
+    return ($this->books/365) * 100;
   }
 
-  public function addTimeToSports($sports) {
-    $this->sropts += $sports;
+  public function calcSports($sports) {
+    $this->sports += $sports;
+    $this->remainingDays -= $this->sports;
+    echo "残り日数は" . $this->remainingDays . "です\n";
+    return ($this->sports/365) * 100;
   }
 
-  public function addTimeToTrip($trip) {
+  public function calcTrip($trip) {
     $this->trip += $trip;
+    $this->remainingDays -= $this->trip;
+    echo "残り日数は" . $this->remainingDays . "です\n";
+    return ($this->trip/365) * 100;
   }
 
   // パーセンテージを計算する処理
 
   // 全要素とパーセンテージを列挙する処理
   public function show() {
-    echo "success!!!\n";
+    echo "残り". $this->remainingDays . "日\n";
+    echo "パーセンテージ% \n";
   }
 
 }
@@ -63,6 +82,7 @@ class Human {
 
 $human = new Human();
 
+$parcentage = 100;
 
   echo "[もしも1年間自由に時間が使えるとしたら、あなたは何に何日費やしますか。]\n";
   echo "[1:勉強, 2:仕事, 3:遊び, 4:読書, 5:運動, 6:旅行 : 365日] \n";
@@ -71,34 +91,27 @@ $human = new Human();
     echo "残り365日\n";
     echo "[勉強に365日のうち何日費やしますか。] > ";
     $study = trim(fgets(STDIN));
-    $human->addTimeToStudy($study);
+    $parcentage -= $human->calcStudy($study);
 
-    echo "残り365日\n";
     echo "[仕事に365日のうち何日費やしますか。] > ";
     $work = trim(fgets(STDIN));
-    $human->addTimeToWork($work);
+    $parcentage -= $human->calcWork($work);
 
-    echo "残り365日\n";
     echo "[遊びに365日のうち何日費やしますか。] > ";
     $play = trim(fgets(STDIN));
-    $human->addTimeToPlay($play);
+    $parcentage -= $human->calcPlay($play);
 
-    echo "残り365日\n";
     echo "[読書に365日のうち何日費やしますか。] > ";
     $books = trim(fgets(STDIN));
-    $human->addTimeTo($books);
+    $parcentage -= $human->calcBooks($books);
 
-    echo "残り365日\n";
     echo "[運動に365日のうち何日費やしますか。] > ";
     $sports = trim(fgets(STDIN));
-    $human->addTimeToSports($sports);
+    $parcentage -= $human->calcSports($sports);
 
-    echo "残り365日\n";
     echo "[旅行に365日のうち何日費やしますか。] > ";
     $trip = trim(fgets(STDIN));
-    $human->addTimeToTrip($trip);
+    $parcentage -= $human->calcTrip($trip);
 
-    echo "success!!\n";
-
-    echo $human->remainingDays . "\n";
-    // $human->show();
+    $human->show();
+    echo "$parcentage\n";
